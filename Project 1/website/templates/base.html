@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- links to external files: the Bootstrap CSS and Font Awesome CSS files -->
+    <!-- Instead of building my own CSS file, bootstrap is more powerful and time-saving -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Sofia"
+      crossorigin="anonymous"
+    />
+    <link 
+    href="https://fonts.googleapis.com/css?family=Merriweather|Roboto+Slab&display=swap" 
+    rel="stylesheet">
+    <link 
+      rel="stylesheet" 
+      href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" 
+      integrity="sha384-9aItS2sj4gD2QxJ3gRxgz4TH4Y/HJU2+Bjen+GvXuFP+Fd/maIljen+GvXuFP+Fd" 
+      crossorigin="anonymous">
+    <title>{% block title %}My Own Notes{% endblock %}</title>
+    <style>
+      body {
+        background-color: #e6ffe6;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .container {
+        margin: 50px;
+        font-family: 'Merriweather', sans-serif;
+        font-size: 1.5rem;
+    }
+
+    #sm-footer {
+
+        bottom: 0;
+        background-color: black;
+        width: 100vw;
+        height: 15vh;
+        display: flex;
+        justify-content: space-evenly;
+        font-size: 2rem;
+        font-family: 'Roboto Slab', sans-serif;
+    }
+
+    a,
+    a:visited {
+        color: white;
+        text-decoration: none;
+        padding: 10px;
+    }
+    #sm-footer h4 {
+      color: #a6a6a6;
+      font-size: 0.7 rem;
+    }
+    #sm-footer h5 {
+      color: #a6a6a6;
+      font-size: 0.5 rem;
+    }
+    #sm-footer a {
+      color: #ffffff;
+      font-size: 1.2 rem;
+    }
+    .my-button {
+  background-color: #FFC107;
+  color: #FFF;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.my-button:hover {
+  background-color: #FFA000;
+}
+
+    
+      
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <!-- a button to toggle the collapse of the navigation bar on mobile devices (smaller screen) -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbar"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar">
+        <div class="navbar-nav">
+          <!-- if the user is logged in, she/he will see 'home' and 'logout' in the nav-bar. -->
+
+          {% if user.is_authenticated %}
+          <button type="button" class="btn btn-light mr-2" onclick="location.href='/'">Home</button>
+          <button type="button" class="btn btn-light mr-2" onclick="location.href='/events'">View the upcoming events</button>
+          <button type="button" class="btn btn-light mr-2" onclick="location.href='/event-signup'">Sign up for upcoming events</button>
+          <button type="button" class="btn btn-secondary mr-2" onclick="location.href='/logout'">Logout</button>
+          {% else %}
+          <button type="button" class="btn btn-light mr-2" onclick="location.href='/login'">Login</button>
+          <button type="button" class="btn btn-light mr-2" onclick="location.href='/sign-up'">Sign Up</button>
+          {% endif %}
+        </div>
+      </div>
+    </nav>
+
+    {% with messages = get_flashed_messages(with_categories = true) %} {% if
+    messages %} {% for category, message in messages %} {% if category ==
+    'error' %}
+    <div class="alert alert-danger alter-dismissable fade show" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% else %}
+    <div class="alert alert-success alter-dismissable fade show" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endif %} {% endfor %} {% endif %} {% endwith %}
+
+    <div class="container">{% block content %} {% endblock %}</div>
+
+
+
+
+
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    >
+  </script>
+
+{% block javascript %}
+    <script type="text/javascript">
+      function deleteNote(noteId) {
+  fetch("/delete-note", {
+    method: "POST",
+    body: JSON.stringify({ noteId: noteId }),
+  }).then((_res) => {
+    window.location.href = "/";
+  });
+  }
+</script>
+{% endblock %}
+  
+  <footer id="sm-footer">
+    <a href="https://www.facebook.com">Facebook<i class="fab fa-facebook"></i></a>
+       <a href="https://www.instagram.com">Instagram<i class="fab fa-instagram"></i></a>
+       <a href="https://www.twitter.com">Twitter<i class="fab fa-twitter"></i></a>
+       <a href="https://youtube.com">Youtube<i class="fab fa-youtube"></i></a>
+       <a href="https://linkedin.com">Linkedin<i class="fab fa-linkedin"></i></a>
+       <div class="col-md-5">
+        <h4>Contact us:</h4>
+        <h5>Email: your-email@example.com</h5>
+        <h5>Phone: (123) 456-7890</h5>
+      </div>
+
+
+</footer>
+</body>
+</html>

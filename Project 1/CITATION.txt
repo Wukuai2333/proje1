@@ -1,0 +1,31 @@
+The majority of the skills I learned is from: 
+https://www.youtube.com/watch?v=dam0GPOAvVI&ab_channel=TechWithTim
+
+YouTube
+https://www.youtube.com/watch?v=hbDRTZarMUw
+
+YouTube
+https://www.youtube.com/watch?v=fQrq207zXzU&t=606s
+
+Building Websites With Flask - Python and Flask #1 - YouTube
+https://www.youtube.com/watch?v=2e4STDACVA8
+
+YouTube
+https://www.youtube.com/watch?v=2e4STDACVA8
+
+How To Use Python On A Web Page With Jinja2 - Flask Fridays #2 - YouTube
+https://www.youtube.com/watch?v=4yaG-jFfePc&t=212s
+
+YouTube
+https://www.youtube.com/watch?v=0Qxtt4veJIc&t=1032s
+
+Python Website Full Tutorial - Flask, Authentication, Databases & More - YouTube
+https://www.youtube.com/watch?v=dam0GPOAvVI&t=7016s
+
+Python Website Full Tutorial - Flask, Authentication, Databases & More
+https://www.youtube.com/watch?v=dam0GPOAvVI&ab_channel=TechWithTim
+
+
+https://getbootstrap.com/docs/4.0/components/forms/
+
+https://getbootstrap.com/docs/4.0/components/badge/

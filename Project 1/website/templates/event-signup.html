@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <h1>Event Sign Up</h1>
+        <h4>Welcome to our event sign-up page! Thank you for your interest in our activities. Now please fill in your information so as others can know about you!</h4>
+        <form method="POST" action="{{ url_for('views.event_signup_page') }}">
+            <input type="hidden" name="event_id" value="{{ event_id }}">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" name="name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" name="age" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="text" name="phone" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" name="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="time">Time Able to Attend:</label>
+                <select name="time" class="form-control" required>
+                    <option value="">Select Time</option>
+                    <option value="9:00-10:00am">9:00-10:00am</option>
+                    <option value="10:00-11:00am">10:00-11:00am</option>
+                    <option value="11:00-12:00pm">11:00-12:00pm</option>
+                    <option value="12:00-1:00pm">12:00-1:00pm</option>
+                    <option value="1:00-2:00pm">1:00-2:00pm</option>
+                    <option value="2:00-3:00pm">2:00-3:00pm</option>
+                    <option value="3:00-4:00pm">3:00-4:00pm</option>
+                    <option value="4:00-5:00pm">4:00-5:00pm</option>
+                    <option value="5:00-6:00pm">5:00-6:00pm</option>
+                    <option value="6:00-7:00pm">6:00-7:00pm</option>
+                    <option value="7:00-8:00pm">7:00-8:00pm</option>
+                    <option value="8:00-9:00pm">8:00-9:00pm</option>
+                    <option value="9:00-10:00pm">9:00-10:00pm</option>
+                    <option value="10:00-11:00pm">10:00-11:00pm</option>
+                    <option value="11:00-12:00am">11:00-12:00am</option>
+                    <option value="12:00-1:00am">12:00-1:00am</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="introduction">Introduction:</label>
+                <textarea name="introduction" class="form-control" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+{% endblock %}
